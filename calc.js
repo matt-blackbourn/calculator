@@ -26,6 +26,7 @@ for(let i = 0; i < numbers.length; i++){
 function clearLast(){
    console.log(userInput)
    tempNum = ""
+   screen.value = "0"
    //remove last symbol from array
    let lastIndex = userInput[userInput.length -1]
    if(lastIndex === "+" || lastIndex === "-" || lastIndex === "*" || lastIndex === "/"){
@@ -35,7 +36,7 @@ function clearLast(){
 
 function clearMemory(){
    if(decimalPoint.disabled) decimalPoint.disabled = false
-   screen.value = ""
+   screen.value = "0"
    tempNum = ""
    userInput = []
 }
@@ -98,7 +99,7 @@ function percentage(){
       let firstNum = Number(userInput[0])
       let secondNum = Number(userInput[2])
       screen.value = secondNum*(firstNum/100)
-   } else {
-      screen.value = "0"
-   }
+   } 
+   userInput = []
+   tempNum = ""
 }
