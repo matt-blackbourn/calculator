@@ -23,6 +23,16 @@ for(let i = 0; i < numbers.length; i++){
    }) 
 }
 
+function clearLast(){
+   console.log(userInput)
+   tempNum = ""
+   let lastIndex = userInput[userInput.length -1]
+   if(lastIndex === "+" || lastIndex === "-" || lastIndex === "*" || lastIndex === "/"){
+      userInput.pop()
+   }
+   console.log(userInput)
+}
+
 function clearMemory(){
    if(decimalPoint.disabled) decimalPoint.disabled = false
    screen.value = ""
