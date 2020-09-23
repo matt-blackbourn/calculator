@@ -9,46 +9,57 @@
 
 let screen = document.querySelector("#screen")
 let numbers = document.querySelectorAll(".number")
+let decimalPoint = document.querySelector("#decimalPoint")
 let tempNum = ""
 let userInput = []
 for(let i = 0; i < numbers.length; i++){
    numbers[i].addEventListener("click", function(e){
+      
       tempNum += e.target.value
       screen.value = tempNum
+      if(e.target.value === "."){
+         e.target.disabled = true
+      }
    }) 
 }
 
 function clearMemory(){
+   if(decimalPoint.disabled) decimalPoint.disabled = false
    screen.value = ""
    tempNum = ""
    userInput = []
 }
 
 function add(){
+   if(decimalPoint.disabled) decimalPoint.disabled = false
    userInput.push(tempNum)
    tempNum = ""
    userInput.push("+")
 }
 
 function subtract(){
+   if(decimalPoint.disabled) decimalPoint.disabled = false
    userInput.push(tempNum)
    tempNum = ""
    userInput.push("-")
 }
 
 function multiply(){
+   if(decimalPoint.disabled) decimalPoint.disabled = false
    userInput.push(tempNum)
    tempNum = ""
    userInput.push("*")
 }
 
 function divide(){
+   if(decimalPoint.disabled) decimalPoint.disabled = false
    userInput.push(tempNum)
    tempNum = ""
    userInput.push("/")
 }
 
 function compute(){
+   if(decimalPoint.disabled) decimalPoint.disabled = false
    userInput.push(tempNum)
    console.log(userInput)
    tempNum = ""
