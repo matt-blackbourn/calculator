@@ -26,11 +26,11 @@ for(let i = 0; i < numbers.length; i++){
 function clearLast(){
    console.log(userInput)
    tempNum = ""
+   //remove last symbol from array
    let lastIndex = userInput[userInput.length -1]
    if(lastIndex === "+" || lastIndex === "-" || lastIndex === "*" || lastIndex === "/"){
       userInput.pop()
    }
-   console.log(userInput)
 }
 
 function clearMemory(){
@@ -88,9 +88,17 @@ function compute(){
       }
       screen.value = result
    }
-
    tempNum = ""
    userInput = []
 }
 
-//[1+2+3-4]
+function percentage(){
+   if(userInput[1] === "*"){
+      userInput.push(tempNum)
+      let firstNum = Number(userInput[0])
+      let secondNum = Number(userInput[2])
+      screen.value = secondNum*(firstNum/100)
+   } else {
+      screen.value = "0"
+   }
+}
