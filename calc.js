@@ -9,8 +9,48 @@
 
 let screen = document.querySelector("#screen")
 let numbers = document.querySelectorAll(".number")
+let tempNum = ""
+let userInput = []
 for(let i = 0; i < numbers.length; i++){
    numbers[i].addEventListener("click", function(e){
-      screen.value = e.target.value
-   })
+      tempNum += e.target.value
+      screen.value = tempNum
+   }) 
+}
+
+function clearMemory(){
+   screen.value = ""
+   tempNum = ""
+   userInput = []
+}
+
+function add(){
+   userInput.push(tempNum)
+   tempNum = ""
+   userInput.push("+")
+}
+
+function subtract(){
+   userInput.push(tempNum)
+   tempNum = ""
+   userInput.push("-")
+}
+
+function multiply(){
+   userInput.push(tempNum)
+   tempNum = ""
+   userInput.push("*")
+}
+
+function divide(){
+   userInput.push(tempNum)
+   tempNum = ""
+   userInput.push("/")
+}
+
+function compute(){
+   userInput.push(tempNum)
+   console.log(userInput)
+   tempNum = ""
+   userInput = []
 }

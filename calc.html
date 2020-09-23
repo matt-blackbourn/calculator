@@ -11,33 +11,33 @@
       <input type="text" id="screen" disabled>
       <div class="buttons">
          <div class="row">
-            <button id="ac">AC</button>
+            <button onclick="clearMemory()">AC</button>
             <button id="c">C</button>
             <button>%</button>
-            <button>/</button>
+            <button onclick="divide()">/</button>
          </div>
          <div class="row">
             <button class="number" value="7">7</button>
             <button class="number" value="8">8</button>
             <button class="number" value="9">9</button>
-            <button>X</button>
+            <button onclick="multiply()">X</button>
          </div>
          <div class="row">
             <button class="number" value="4">4</button>
             <button class="number" value="5">5</button>
             <button class="number" value="6">6</button>
-            <button>-</button>
+            <button onclick="subtract()">-</button>
          </div>
          <div class="row">
             <button class="number" value="1">1</button>
             <button class="number" value="2">2</button>
             <button class="number" value="3">3</button>
-            <button>+</button>
+            <button onclick="add()">+</button>
          </div>
          <div class="row">
             <button class="number" value="0">0</button>
-            <button>.</button>
-            <button>=</button>
+            <button class="number" value=".">.</button>
+            <button onclick="compute()">=</button>
          </div>
       </div>
 
