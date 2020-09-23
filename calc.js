@@ -12,9 +12,9 @@ let numbers = document.querySelectorAll(".number")
 let decimalPoint = document.querySelector("#decimalPoint")
 let tempNum = ""
 let userInput = []
+
 for(let i = 0; i < numbers.length; i++){
    numbers[i].addEventListener("click", function(e){
-      
       tempNum += e.target.value
       screen.value = tempNum
       if(e.target.value === "."){
@@ -72,6 +72,25 @@ function compute(){
    if(decimalPoint.disabled) decimalPoint.disabled = false
    userInput.push(tempNum)
    console.log(userInput)
+   let result = Number(userInput[0])
+   for(let i = 1; i < userInput.length; i++){
+      let symbol = userInput[i]
+      let nextNum = Number(userInput[i+1])
+      
+      if(symbol === "+"){
+         result += nextNum
+      } else if(symbol === "-"){
+         result -= nextNum
+      } else if(symbol === "/"){
+         result /= nextNum
+      } else if(symbol === "*"){
+         result *= nextNum
+      }
+      screen.value = result
+   }
+
    tempNum = ""
    userInput = []
 }
+
+//[1+2+3-4]
