@@ -6,3 +6,11 @@
 //array should then contain number, symbol, number, symbol etc
 //when = sign inputted, loop through array, take number and symbol and +=, -= etc through whole array.
 //return final total, display this in display.
+
+let screen = document.querySelector("#screen")
+let numbers = document.querySelectorAll(".number")
+for(let i = 0; i < numbers.length; i++){
+   numbers[i].addEventListener("click", function(e){
+      screen.value = e.target.value
+   })
+}
