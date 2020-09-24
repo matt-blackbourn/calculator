@@ -13,16 +13,15 @@ const operators = document.querySelectorAll(".symbol")
 const decimalPoint = document.querySelector("#decimalPoint")
 let tempNum = ""
 let userInput = []
-let result
+let result = ""
 
 //deals with number inputs from user
 for(let i = 0; i < numbers.length; i++){
    numbers[i].addEventListener("click", function(e){
       tempNum += e.target.value
       screen.value = tempNum
-      if(e.target.value === "."){
-         e.target.disabled = true
-      }
+      if(e.target.value === ".") e.target.disabled = true
+      result = "" 
    }) 
 }
 
@@ -31,7 +30,6 @@ for(let i = 0; i <operators.length; i++){
    operators[i].addEventListener("click", function(e){
       if(decimalPoint.disabled) decimalPoint.disabled = false
       result ? userInput.push(result) : userInput.push(tempNum)
-      tempNum = ""
       switch(e.target.value){
          case "add": userInput.push("+")
          break
@@ -42,6 +40,7 @@ for(let i = 0; i <operators.length; i++){
          case "divide": userInput.push("/")
          break
       }
+      tempNum = ""
    })
 }
 
@@ -49,7 +48,6 @@ for(let i = 0; i <operators.length; i++){
 function clearLast(){
    tempNum = ""
    screen.value = "0"
-   //if previous input was an operator, this is removed here
    let lastIndex = userInput[userInput.length -1]
    if(lastIndex === "+" || lastIndex === "-" || lastIndex === "*" || lastIndex === "/"){
       userInput.pop()
