@@ -7,25 +7,57 @@
    grid-template-columns: .5fr repeat(4, 1fr) .5fr;
    grid-template-rows: 1fr 2fr 1fr repeat(6, 1fr);
    grid-gap: 10px;
+   border-radius: 20px;
+}
+
+button{
+   color: white;
+   background-color: black;
+   font-size: 100%;
+   border: 0;
+   padding: 0;
+}
+
+button:disabled{
+   color: white;
+   background-color: black;
+   font-size: 100%;
+   border: 0;
+   padding: 0;
+}
+
+.number{
+   border-radius: 20%;
+}
+
+.symbol{
+   border-radius: 20%;
 }
 
 #screen{
    grid-column: 2 / 6;
    grid-row: 2 / 3;
+   font-size: 3em;
+   text-align: right;
 }
 
 /* buttons row 1 */
 .ac{
    grid-column: 2 / 3;
    grid-row: 4 / 5;
+   border-radius: 20%;
+   background-color: #ef6868;
 }
 .c{
    grid-column: 3 / 4;
    grid-row: 4 / 5;
+   border-radius: 20%;
+   background-color: #ef6868;
 }
 .percent{
    grid-column: 4 / 5;
    grid-row: 4 / 5;
+   border-radius: 20%;
 }
 .divide{
    grid-column: 5 / 6;
@@ -98,8 +130,6 @@
 .equals{
    grid-column: 4 / 5;
    grid-row: 8 / 9;
+   border-radius: 20%;
 }
 
-button:disabled{
-   background-color: rgb(239, 239, 239);
-}
