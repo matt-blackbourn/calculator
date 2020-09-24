@@ -3,10 +3,101 @@
    width: 300px;
    height: 500px;
    margin: 0 auto;
+   display: grid;
+   grid-template-columns: .5fr repeat(4, 1fr) .5fr;
+   grid-template-rows: 1fr 2fr 1fr repeat(6, 1fr);
+   grid-gap: 10px;
 }
 
-.row{
-   display: flex;
+#screen{
+   grid-column: 2 / 6;
+   grid-row: 2 / 3;
+}
+
+/* buttons row 1 */
+.ac{
+   grid-column: 2 / 3;
+   grid-row: 4 / 5;
+}
+.c{
+   grid-column: 3 / 4;
+   grid-row: 4 / 5;
+}
+.percent{
+   grid-column: 4 / 5;
+   grid-row: 4 / 5;
+}
+.divide{
+   grid-column: 5 / 6;
+   grid-row: 4 / 5;
+}
+
+/* buttons row 2 */
+.seven{
+   grid-column: 2 / 3;
+   grid-row: 5 / 6;
+}
+.eight{
+   grid-column: 3 / 4;
+   grid-row: 5 / 6;
+}
+.nine{
+   grid-column: 4 / 5;
+   grid-row: 5 / 6;
+}
+.multiply{
+   grid-column: 5 / 6;
+   grid-row: 5 / 6;
+}
+
+/* buttons row 3 */
+.four{
+   grid-column: 2 / 3;
+   grid-row: 6 / 7;
+}
+.five{
+   grid-column: 3 / 4;
+   grid-row: 6 / 7;
+}
+.six{
+   grid-column: 4 / 5;
+   grid-row: 6 / 7;
+}
+.subtract{
+   grid-column: 5 / 6;
+   grid-row: 6 / 7;
+}
+
+/* buttons row 4 */
+.one{
+   grid-column: 2 / 3;
+   grid-row: 7 / 8;
+}
+.two{
+   grid-column: 3 / 4;
+   grid-row: 7 / 8;
+}
+.three{
+   grid-column: 4 / 5;
+   grid-row: 7 / 8;
+}
+.add{
+   grid-column: 5 / 6;
+   grid-row: 7 / 9;
+}
+
+/* buttons row 5 */
+.zero{
+   grid-column: 2 / 3;
+   grid-row: 8 / 9;
+}
+.point{
+   grid-column: 3 / 4;
+   grid-row: 8 / 9;
+}
+.equals{
+   grid-column: 4 / 5;
+   grid-row: 8 / 9;
 }
 
 button:disabled{

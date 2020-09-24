@@ -9,39 +9,35 @@
 <body>
    <div class="calculator">
       <input type="text" id="screen" disabled value="0">
-      <div class="buttons">
-         <div class="row">
-            <button onclick="clearMemory()">AC</button>
-            <button onclick="clearLast()">C</button>
-            <button onclick="percentage()">%</button>
-            <button class="symbol" value="divide">/</button>
-         </div>
-         <div class="row">
-            <button class="number" value="7">7</button>
-            <button class="number" value="8">8</button>
-            <button class="number" value="9">9</button>
-            <button class="symbol" value="multiply">X</button>
-         </div>
-         <div class="row">
-            <button class="number" value="4">4</button>
-            <button class="number" value="5">5</button>
-            <button class="number" value="6">6</button>
-            <button class="symbol" value="subtract">-</button>
-         </div>
-         <div class="row">
-            <button class="number" value="1">1</button>
-            <button class="number" value="2">2</button>
-            <button class="number" value="3">3</button>
-            <button class="symbol" value="add">+</button>
-         </div>
-         <div class="row">
-            <button class="number" value="0">0</button>
-            <button class="number" value="." id="decimalPoint">.</button>
-            <button onclick="compute()">=</button>
-         </div>
-      </div>
-
+      <button onclick="clearMemory()" class="ac">AC</button>
+      <button onclick="clearLast()" class="c">C</button>
+      <button onclick="percentage()" class="percent">%</button>
+      <button class="symbol divide" value="divide">/</button>
+   
+      <button class="number seven" value="7">7</button>
+      <button class="number eight" value="8">8</button>
+      <button class="number nine" value="9">9</button>
+      <button class="symbol multiply" value="multiply">X</button>
+   
+      <button class="number four" value="4">4</button>
+      <button class="number five" value="5">5</button>
+      <button class="number six" value="6">6</button>
+      <button class="symbol subtract" value="subtract">-</button>
+   
+      <button class="number one" value="1">1</button>
+      <button class="number two" value="2">2</button>
+      <button class="number three" value="3">3</button>
+      <button class="symbol add" value="add">+</button>
+   
+      <button class="number zero" value="0">0</button>
+      <button class="number point" value="." id="decimalPoint">.</button>
+      <button onclick="compute()" class="equals">=</button>
+      
+         
+         
+     
    </div>
+
    <script src="calc.js"></script>
 </body>
 </html>
