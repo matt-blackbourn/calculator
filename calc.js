@@ -44,6 +44,7 @@ for(let i = 0; i <operators.length; i++){
    })
 }
 
+//C button 
 function clearLast(){
    console.log(userInput)
    tempNum = ""
@@ -62,6 +63,7 @@ function clearMemory(){
    userInput = []
 }
 
+//on equals input
 function compute(){
    if(decimalPoint.disabled) decimalPoint.disabled = false
    userInput.push(tempNum)
@@ -70,21 +72,32 @@ function compute(){
    for(let i = 1; i < userInput.length; i++){
       let symbol = userInput[i]
       let nextNum = Number(userInput[i+1])
-      if(symbol === "+"){
-         result += nextNum
-      } else if(symbol === "-"){
-         result -= nextNum
-      } else if(symbol === "/"){
-         result /= nextNum
-      } else if(symbol === "*"){
-         result *= nextNum
+      switch(symbol){
+         case "+": result += nextNum
+         break
+         case "-": result -= nextNum
+         break
+         case "/": result /= nextNum
+         break
+         case "*": result *= nextNum
+         break
       }
+      // if(symbol === "+"){
+      //    result += nextNum
+      // } else if(symbol === "-"){
+      //    result -= nextNum
+      // } else if(symbol === "/"){
+      //    result /= nextNum
+      // } else if(symbol === "*"){
+      //    result *= nextNum
+      // }
       screen.value = result
    }
    tempNum = ""
    userInput = []
 }
 
+//deals with edge case % button
 function percentage(){
    if(userInput[1] === "*"){
       userInput.push(tempNum)
