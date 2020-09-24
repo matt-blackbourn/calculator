@@ -2,17 +2,18 @@
 //create temporary inputs array, and push numbers and symbols into array 
 //use temp string to build numbers, until symbol input is received
 //when symbol input recieved, turn string to number, and add to array
-//add symbol to array, using function connected to button
-//array should then contain number, symbol, number, symbol etc
+//add symbol to array
+//input array should then contain number, symbol, number, symbol etc
 //when = sign inputted, loop through array, take number and symbol and +=, -= etc through whole array.
 //return final total, display this in display.
 
-let screen = document.querySelector("#screen")
-let numbers = document.querySelectorAll(".number")
-let operators = document.querySelectorAll(".symbol")
-let decimalPoint = document.querySelector("#decimalPoint")
+const screen = document.querySelector("#screen")
+const numbers = document.querySelectorAll(".number")
+const operators = document.querySelectorAll(".symbol")
+const decimalPoint = document.querySelector("#decimalPoint")
 let tempNum = ""
 let userInput = []
+let result
 
 //deals with number inputs from user
 for(let i = 0; i < numbers.length; i++){
@@ -29,7 +30,7 @@ for(let i = 0; i < numbers.length; i++){
 for(let i = 0; i <operators.length; i++){
    operators[i].addEventListener("click", function(e){
       if(decimalPoint.disabled) decimalPoint.disabled = false
-      userInput.push(tempNum)
+      result ? userInput.push(result) : userInput.push(tempNum)
       tempNum = ""
       switch(e.target.value){
          case "add": userInput.push("+")
@@ -67,7 +68,7 @@ function clearMemory(){
 function compute(){
    if(decimalPoint.disabled) decimalPoint.disabled = false
    userInput.push(tempNum)
-   let result = Number(userInput[0])
+   result = Number(userInput[0])
 
    for(let i = 1; i < userInput.length; i++){
       let symbol = userInput[i]
@@ -83,6 +84,7 @@ function compute(){
          break
       }
       screen.value = result
+      result = result.toString() //needed to add to array for next calc if required
    }
    tempNum = ""
    userInput = []
