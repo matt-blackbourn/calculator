@@ -14,7 +14,7 @@ let decimalPoint = document.querySelector("#decimalPoint")
 let tempNum = ""
 let userInput = []
 
-//deals with number inputs
+//deals with number inputs from user
 for(let i = 0; i < numbers.length; i++){
    numbers[i].addEventListener("click", function(e){
       tempNum += e.target.value
@@ -25,7 +25,7 @@ for(let i = 0; i < numbers.length; i++){
    }) 
 }
 
-//deals with operator inputs
+//deals with operator(symbol) inputs from user
 for(let i = 0; i <operators.length; i++){
    operators[i].addEventListener("click", function(e){
       if(decimalPoint.disabled) decimalPoint.disabled = false
@@ -44,18 +44,18 @@ for(let i = 0; i <operators.length; i++){
    })
 }
 
-//C button 
+//deals with "C" button input from user
 function clearLast(){
-   console.log(userInput)
    tempNum = ""
    screen.value = "0"
-   //remove last symbol from array
+   //if previous input was an operator, this is removed here
    let lastIndex = userInput[userInput.length -1]
    if(lastIndex === "+" || lastIndex === "-" || lastIndex === "*" || lastIndex === "/"){
       userInput.pop()
    }
 }
 
+//resets calculator
 function clearMemory(){
    if(decimalPoint.disabled) decimalPoint.disabled = false
    screen.value = "0"
@@ -63,12 +63,12 @@ function clearMemory(){
    userInput = []
 }
 
-//on equals input
+//deals with = input from user
 function compute(){
    if(decimalPoint.disabled) decimalPoint.disabled = false
    userInput.push(tempNum)
-   console.log(userInput)
    let result = Number(userInput[0])
+
    for(let i = 1; i < userInput.length; i++){
       let symbol = userInput[i]
       let nextNum = Number(userInput[i+1])
@@ -82,29 +82,20 @@ function compute(){
          case "*": result *= nextNum
          break
       }
-      // if(symbol === "+"){
-      //    result += nextNum
-      // } else if(symbol === "-"){
-      //    result -= nextNum
-      // } else if(symbol === "/"){
-      //    result /= nextNum
-      // } else if(symbol === "*"){
-      //    result *= nextNum
-      // }
       screen.value = result
    }
    tempNum = ""
    userInput = []
 }
 
-//deals with edge case % button
+//deals with % button input from user - only works with number, *, number
 function percentage(){
-   if(userInput[1] === "*"){
+   if(userInput[1] === "*" && userInput.length === 2){
       userInput.push(tempNum)
-      let firstNum = Number(userInput[0])
-      let secondNum = Number(userInput[2])
-      screen.value = secondNum*(firstNum/100)
-   } 
+      screen.value = Number(userInput[2])*(Number(userInput[0])/100)
+   } else {
+      screen.value = "0"
+   }
    userInput = []
    tempNum = ""
 }
