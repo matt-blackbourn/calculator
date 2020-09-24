@@ -9,10 +9,12 @@
 
 let screen = document.querySelector("#screen")
 let numbers = document.querySelectorAll(".number")
+let operators = document.querySelectorAll(".symbol")
 let decimalPoint = document.querySelector("#decimalPoint")
 let tempNum = ""
 let userInput = []
 
+//deals with number inputs
 for(let i = 0; i < numbers.length; i++){
    numbers[i].addEventListener("click", function(e){
       tempNum += e.target.value
@@ -21,6 +23,25 @@ for(let i = 0; i < numbers.length; i++){
          e.target.disabled = true
       }
    }) 
+}
+
+//deals with operator inputs
+for(let i = 0; i <operators.length; i++){
+   operators[i].addEventListener("click", function(e){
+      if(decimalPoint.disabled) decimalPoint.disabled = false
+      userInput.push(tempNum)
+      tempNum = ""
+      switch(e.target.value){
+         case "add": userInput.push("+")
+         break
+         case "subtract": userInput.push("-")
+         break
+         case "multiply": userInput.push("*")
+         break
+         case "divide": userInput.push("/")
+         break
+      }
+   })
 }
 
 function clearLast(){
@@ -41,34 +62,6 @@ function clearMemory(){
    userInput = []
 }
 
-function add(){
-   if(decimalPoint.disabled) decimalPoint.disabled = false
-   userInput.push(tempNum)
-   tempNum = ""
-   userInput.push("+")
-}
-
-function subtract(){
-   if(decimalPoint.disabled) decimalPoint.disabled = false
-   userInput.push(tempNum)
-   tempNum = ""
-   userInput.push("-")
-}
-
-function multiply(){
-   if(decimalPoint.disabled) decimalPoint.disabled = false
-   userInput.push(tempNum)
-   tempNum = ""
-   userInput.push("*")
-}
-
-function divide(){
-   if(decimalPoint.disabled) decimalPoint.disabled = false
-   userInput.push(tempNum)
-   tempNum = ""
-   userInput.push("/")
-}
-
 function compute(){
    if(decimalPoint.disabled) decimalPoint.disabled = false
    userInput.push(tempNum)
@@ -77,7 +70,6 @@ function compute(){
    for(let i = 1; i < userInput.length; i++){
       let symbol = userInput[i]
       let nextNum = Number(userInput[i+1])
-      
       if(symbol === "+"){
          result += nextNum
       } else if(symbol === "-"){
