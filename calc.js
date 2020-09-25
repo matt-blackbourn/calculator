@@ -81,8 +81,8 @@ function compute(){
          case "*": result *= nextNum
          break
       }
-      screen.value = result
-      result = result.toString() //needed to add to array for next calc if required
+      result = result.toString()
+      screen.value = result.substring(0, 8)
    }
    tempNum = ""
    userInput = []
