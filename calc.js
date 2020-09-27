@@ -22,14 +22,27 @@ for(let i = 0; i < numbers.length; i++){
       screen.value = tempNum
       if(e.target.value === ".") e.target.disabled = true
       result = "" 
+      
    }) 
+   
 }
 
 //deals with operator(symbol) inputs from user
 for(let i = 0; i <operators.length; i++){
    operators[i].addEventListener("click", function(e){
       if(decimalPoint.disabled) decimalPoint.disabled = false
-      result ? userInput.push(result) : userInput.push(tempNum)
+      
+  
+      if(result){
+         userInput.push(result)
+         result = ""
+      } else if(tempNum){
+         userInput.push(tempNum)
+         tempNum = ""
+      } else {
+         userInput.pop()
+      }
+      
       switch(e.target.value){
          case "add": userInput.push("+")
          break
@@ -40,8 +53,11 @@ for(let i = 0; i <operators.length; i++){
          case "divide": userInput.push("/")
          break
       }
-      tempNum = ""
+
+      
    })
+   
+
 }
 
 //deals with "C" button input from user
@@ -66,8 +82,8 @@ function clearMemory(){
 function compute(){
    if(decimalPoint.disabled) decimalPoint.disabled = false
    userInput.push(tempNum)
-   result = Number(userInput[0])
 
+   result = Number(userInput[0])
    for(let i = 1; i < userInput.length; i++){
       let symbol = userInput[i]
       let nextNum = Number(userInput[i+1])
