@@ -14,19 +14,16 @@ const decimalPoint = document.querySelector("#decimalPoint")
 let tempNum = ""
 let userInput = []
 let result = ""
-let tempMultiplier 
+
 
 //deals with number inputs from user
 for(let i = 0; i < numbers.length; i++){
-   numbers[i].addEventListener("click", function(e){
-      
+   numbers[i].addEventListener("click", function(e){ 
       tempNum += e.target.value
       screen.value = tempNum
       if(e.target.value === ".") e.target.disabled = true
-      result = "" 
-      
-   }) 
-   
+      result = ""      
+   })    
 }
 
 //deals with operator(symbol) inputs from user
@@ -34,7 +31,6 @@ for(let i = 0; i <operators.length; i++){
    operators[i].addEventListener("click", function(e){
       if(decimalPoint.disabled) decimalPoint.disabled = false
       
-  
       if(result){
          userInput.push(result)
          result = ""
@@ -54,12 +50,8 @@ for(let i = 0; i <operators.length; i++){
          break
          case "divide": userInput.push("/")
          break
-      }
-
-      
+      }     
    })
-   
-
 }
 
 //deals with "C" button input from user
@@ -77,16 +69,12 @@ function clearMemory(){
    if(decimalPoint.disabled) decimalPoint.disabled = false
    screen.value = "0"
    tempNum = ""
+   result = ""
    userInput = []
-   tempMultiplier = undefined
 }
-
 
 //deals with = input from user
 function compute(){
-   if(tempMultiplier){
-      screen.value = result
-   }
    if(decimalPoint.disabled) decimalPoint.disabled = false
    userInput.push(tempNum)
 
@@ -94,21 +82,15 @@ function compute(){
    for(let i = 1; i < userInput.length; i++){
       let symbol = userInput[i]
       let nextNum = Number(userInput[i+1])
-      if(userInput[1] === "*" && userInput[2] === "" && userInput[3] === "*"){
-         tempMultiplier = userInput[0]
-         result = userInput[0] * userInput[4]
-      } else {
-
-         switch(symbol){
-            case "+": result += nextNum
-            break
-            case "-": result -= nextNum
-            break
-            case "/": result /= nextNum
-            break
-            case "*": result *= nextNum
-            break
-         }
+      switch(symbol){
+         case "+": result += nextNum
+         break
+         case "-": result -= nextNum
+         break
+         case "/": result /= nextNum
+         break
+         case "*": result *= nextNum
+         break
       }
       result = result.toString()
       screen.value = result.substring(0, 8)
