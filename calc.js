@@ -24,16 +24,7 @@ for(let i = 0; i < numbers.length; i++){
       screen.value = tempNum
       if(e.target.value === ".") e.target.disabled = true
       result = "" 
-<<<<<<< HEAD
       
-||||||| merged common ancestors
-=======
-      if(tempMultiplier){
-         result = tempMultiplier * tempNum
-         tempNum = ""
-         console.log(tempNum, tempMultiplier)
-      }
->>>>>>> 72fb3844530d97cf251a295fd983030c5e3ab3bb
    }) 
    
 }
@@ -42,7 +33,6 @@ for(let i = 0; i < numbers.length; i++){
 for(let i = 0; i <operators.length; i++){
    operators[i].addEventListener("click", function(e){
       if(decimalPoint.disabled) decimalPoint.disabled = false
-<<<<<<< HEAD
       
   
       if(result){
@@ -55,12 +45,6 @@ for(let i = 0; i <operators.length; i++){
          userInput.pop()
       }
       
-||||||| merged common ancestors
-      result ? userInput.push(result) : userInput.push(tempNum)
-=======
-      
-      result ? userInput.push(result) : userInput.push(tempNum)
->>>>>>> 72fb3844530d97cf251a295fd983030c5e3ab3bb
       switch(e.target.value){
          case "add": userInput.push("+")
          break
@@ -71,15 +55,8 @@ for(let i = 0; i <operators.length; i++){
          case "divide": userInput.push("/")
          break
       }
-<<<<<<< HEAD
 
       
-||||||| merged common ancestors
-      tempNum = ""
-=======
-      tempNum = ""
-     
->>>>>>> 72fb3844530d97cf251a295fd983030c5e3ab3bb
    })
    
 
@@ -112,15 +89,8 @@ function compute(){
    }
    if(decimalPoint.disabled) decimalPoint.disabled = false
    userInput.push(tempNum)
-<<<<<<< HEAD
 
    result = Number(userInput[0])
-||||||| merged common ancestors
-   result = Number(userInput[0])
-
-=======
-   result = Number(userInput[0])
->>>>>>> 72fb3844530d97cf251a295fd983030c5e3ab3bb
    for(let i = 1; i < userInput.length; i++){
       let symbol = userInput[i]
       let nextNum = Number(userInput[i+1])
